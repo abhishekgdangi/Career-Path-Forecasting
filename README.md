@@ -1,208 +1,221 @@
-\documentclass[11pt,a4paper]{article}
+<div align="center">
 
-% ---------- Packages ----------
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[margin=2.2cm]{geometry}
-\usepackage{amsmath}
-\usepackage{booktabs}
-\usepackage{tabularx}
-\usepackage{array}
-\usepackage[table]{xcolor}
-\usepackage{enumitem}
-\usepackage{titlesec}
-\usepackage{fancyhdr}
-\usepackage{tcolorbox}
-\usepackage[hidelinks]{hyperref}
+# 🎓 Career Path Forecasting
 
-% ---------- Colors ----------
-\definecolor{navy}{HTML}{1F3A5F}
-\definecolor{teal}{HTML}{2A9D8F}
-\definecolor{lightteal}{HTML}{EAF4F3}
+### Predict what a student will do after college: **Job**, **Higher Studies** or **Startup**
 
-% ---------- Styling ----------
-\titleformat{\section}{\Large\bfseries\color{navy}}{\thesection.}{0.6em}{}
-\titleformat{\subsection}{\large\bfseries\color{teal}}{}{0em}{}
-\titlespacing*{\section}{0pt}{16pt}{6pt}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt}
-\setlist[itemize]{itemsep=2pt,topsep=2pt}
-\renewcommand{\arraystretch}{1.3}
+*Machine-learning powered career guidance, built with Python, Scikit-learn and Streamlit.*
 
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[L]{\small\color{gray}Career Path Forecasting -- Project Explained}
-\fancyfoot[R]{\small\color{gray}Page \thepage}
-\renewcommand{\headrulewidth}{0pt}
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-Random%20Forest-F7931E?logo=scikitlearn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data-150458?logo=pandas&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Prototype-2A9D8F)
 
-\newtcolorbox{keybox}{colback=lightteal,colframe=teal,boxrule=0pt,
-  leftrule=3pt,arc=0pt,left=8pt,top=5pt,bottom=5pt}
+</div>
 
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+---
 
-\begin{document}
+## 📌 About the Project
 
-% ---------- Title ----------
-\begin{center}
-  {\Huge\bfseries\color{navy} Career Path Forecasting}\\[6pt]
-  {\Large\color{teal} Project Explained in Simple Words}\\[10pt]
-  Dayananda Sagar College of Engineering, CSE (Data Science)\\
-  Abhishek G Dangi, Sambhram S Naregal, Amarnath V, K Yuvraj Sundaram
-\end{center}
-\vspace{4pt}
+Most colleges judge students only by **CGPA**. But internships, projects, certificates, leadership and interests matter just as much for real-world success. On top of that, many final-year students are confused: *"Should I take a job, study more, or start something of my own?"*
 
-% ---------- 1 ----------
-\section{What Is This Project?}
-\begin{keybox}
-\textbf{It is a smart app that looks at a student's profile (marks, internships, skills, interests) and predicts what they are most likely to do after college: get a job (placement), go for higher studies, or start a startup.} It also gives each student a single score out of 10, called the API score, that shows overall readiness and not just marks.
-\end{keybox}
+**Career Path Forecasting** looks at a student's complete profile and:
 
-\textbf{Why did we make it?} Most colleges judge students only by CGPA. But a student with internships, projects, certificates and leadership can be more ready for the real world than someone with only good marks. Many students are also confused after final year: \emph{``Should I take a job, study more, or start something?''} Our app helps answer this using data.
+- 🔮 **Predicts** the most likely career path (Placement / Higher Studies / Startup)
+- 📊 **Calculates an API Score** (Academic Performance Indicator) out of 10 that shows overall readiness
+- 💡 **Explains** which factors influenced the prediction and gives improvement tips
 
-% ---------- 2 ----------
-\section{What Does the App Do?}
-\begin{tabularx}{\textwidth}{L{3.6cm} X X}
-\toprule
-\rowcolor{navy}\textbf{\color{white}Part} & \textbf{\color{white}You give} & \textbf{\color{white}You get} \\
-\midrule
-\textbf{Tab 1: Career Path Forecasting} (for colleges) &
-Excel file of many students (CGPA, internship, research papers, startup experience, startup skills, programming languages, coding) &
-Predicted outcome for each student, a bar chart of the groups, and a CSV download \\
-\addlinespace
-\textbf{API Score Calculator} (inside Tab 1) &
-CGPA, paid and unpaid internships, courses, certificates &
-Score out of 10 with a short comment \\
-\addlinespace
-\textbf{Tab 2: Personalized Recommendation} (for one student) &
-12 sliders: CGPA, technical skills, communication, internships, projects, extracurriculars, leadership, creativity, analytical thinking, research, business and technical interest &
-Chance (\%) of each path, top recommendation, influence chart and tips \\
-\bottomrule
-\end{tabularx}
+> Built as a research project at **Dayananda Sagar College of Engineering**, Dept. of CSE (Data Science).
 
-% ---------- 3 ----------
-\section{Tools and Data Used}
-\begin{tabularx}{\textwidth}{L{4cm} X}
-\toprule
-\textbf{Tool} & \textbf{Why we used it} \\
-\midrule
-Python & Main programming language \\
-Pandas, NumPy & Read Excel files and prepare data \\
-Scikit-learn & Build and train the machine-learning models \\
-Random Forest & Main model: accurate, stable, handles many inputs \\
-Joblib, Pickle & Save the trained model so it can be reused \\
-Streamlit & Build the web app with upload button, sliders and tabs \\
-Matplotlib, Seaborn, Plotly & Charts and graphs \\
-\bottomrule
-\end{tabularx}
+---
 
-\subsection*{The Data}
-\begin{itemize}
-  \item \textbf{Student table:} USN, name, CGPA, post-graduation plan, co-curricular activities, recognitions, workshops, entrepreneurship experience, startup skills, programming language, coding level, internship, research papers.
-  \item \textbf{Target (what we predict):} Placement, Higher Studies or Startup.
-  \item \textbf{Files:} \texttt{datayesno.xlsx} (1000 students) for training and testing, \texttt{datatest.xlsx} (16 students) and \texttt{datatest2.xlsx} (29 students) for trying the app.
-  \item The research paper reports a dataset of more than 3000 students. The script \texttt{data.py} also creates a practice dataset of 200 students.
-\end{itemize}
+## ✨ Features
 
-% ---------- 4 ----------
-\section{How Does the Model Work?}
-\begin{keybox}
-\textbf{Random Forest = a team of many decision trees voting.} Imagine asking 100 senior students for advice. Each looks at your profile differently and gives an answer. The answer with the most votes wins. One person can be wrong, but 100 voting together is much more reliable.
-\end{keybox}
+| Feature | Description |
+|---|---|
+| 📁 **Bulk Prediction** | Upload an Excel file with many students and get a prediction for each one |
+| 📈 **Outcome Chart** | Interactive bar chart showing how many students fall in each career path |
+| 🧮 **API Score Calculator** | One score out of 10 from CGPA, internships, courses and certificates |
+| 🧠 **Personalized Recommendation** | 12 sliders about yourself, get the % chance of each career path |
+| 🔍 **Explainability** | Top influencing factors shown in a chart, with suggestions |
+| ⬇️ **Downloads** | Export predictions and insights as CSV |
+| 📘 **Input Guidelines** | A PDF that helps students rate themselves honestly |
 
-\subsection*{Step by Step}
-\begin{enumerate}[itemsep=2pt]
-  \item \textbf{Collect data} about past students and what they actually chose.
-  \item \textbf{Clean it:} remove empty rows, convert Yes/No to 1/0, encode labels as numbers.
-  \item \textbf{Scale the numbers} so a 0--100 slider and a 0--5 count are treated fairly.
-  \item \textbf{Split the data:} 80\% to teach the model, 20\% to test it.
-  \item \textbf{Train} the Random Forest (100 trees).
-  \item \textbf{Save} the model to a file (\texttt{.pkl} or \texttt{.joblib}).
-  \item \textbf{Use it in the app:} user gives input, model predicts, app shows the result.
-\end{enumerate}
+---
 
-\subsection*{Two Models in the Project}
-\begin{tabularx}{\textwidth}{L{4.3cm} L{2.6cm} X}
-\toprule
-\textbf{Model file} & \textbf{Used in} & \textbf{Inputs and output} \\
-\midrule
-\texttt{student\_placement\_model.pkl} & Tab 1 (Excel) & 7 inputs (CGPA, internship, research papers, entrepreneurship experience, startup skills, programming languages, coding). Output: Placement / Higher Studies / Startup. \\
-\addlinespace
-\texttt{career\_model.joblib} + \texttt{career\_scaler.joblib} & Tab 2 (sliders) & 12 inputs from the sliders. Output: Entrepreneurship / Higher Studies / Job Placement, with a percentage for each. \\
-\bottomrule
-\end{tabularx}
+## 🖥️ How the App Works
 
-% ---------- 5 ----------
-\section{What Is the API Score?}
-API stands for \textbf{Academic Performance Indicator}. It is one number out of 10 showing overall readiness, not just marks. The calculator in the app adds points like this:
+The app has **two tabs**:
 
-\begin{center}
-\begin{tabularx}{0.95\textwidth}{L{4.2cm} c X}
-\toprule
-\textbf{Part} & \textbf{Max points} & \textbf{How it is counted} \\
-\midrule
-CGPA & 3 & $\dfrac{\text{CGPA}}{10} \times 3$ \\
-Internships & 4 & Paid = 2 points, unpaid = 1 point each \\
-Courses & 2 & IIT 0.5, NIT 0.4, Industry 0.3, Other 0.2 per course \\
-Certificates & 1 & 0.5 per certificate \\
-\midrule
-\textbf{Total} & \textbf{10} & 8.5+ Excellent, 7+ Good, 5+ Fair, below 5 Needs improvement \\
-\bottomrule
-\end{tabularx}
-\end{center}
+### Tab 1: Career Path Forecasting (for colleges and teachers)
+1. Upload an Excel file of students
+2. The model predicts **Placement / Higher Studies / Startup** for every student
+3. See the distribution chart and download the results
+4. Use the built-in **API Score Calculator** for any single student
 
-In formula form:
-\[
-\text{API} = \min\!\left(\tfrac{\text{CGPA}}{10}\times 3,\,3\right) + \min(2P + U,\,4) + \min(C,\,2) + \min(0.5\,N,\,1)
-\]
-where $P$ = paid internships, $U$ = unpaid internships, $C$ = weighted course points, and $N$ = number of certificates.
+### Tab 2: Personalized Career Recommendation (for one student)
+1. Move the sliders (CGPA, technical skills, communication, leadership, creativity, etc.)
+2. Click **Analyze Career Path**
+3. Get the probability of each path, the top recommendation and tips
 
-% ---------- 6 ----------
-\section{How Good Are the Results?}
-These values are reported in our research paper.
+---
 
-\begin{center}
-\begin{tabularx}{0.95\textwidth}{L{4cm} L{3.6cm} c X}
-\toprule
-\textbf{Task} & \textbf{Measure} & \textbf{Result} & \textbf{Simple meaning} \\
-\midrule
-API score prediction & $R^2$ & 0.89 & Explains about 89\% of the score pattern \\
- & RMSE / MAE & 0.48 / 0.37 & Off by less than half a point on average \\
-Career path prediction & Accuracy & 86.3\% & About 86 of 100 predictions are correct \\
- & Precision / Recall / F1 & 84.7 / 85.1 / 84.9\% & Balanced across paths \\
-\bottomrule
-\end{tabularx}
-\end{center}
+## 🧮 API Score (out of 10)
 
-% ---------- 7 ----------
-\section{Project Folder Files}
-\begin{tabularx}{\textwidth}{L{5.2cm} X}
-\toprule
-\textbf{File} & \textbf{What it does} \\
-\midrule
-\texttt{frontend.py} & \textbf{Main app.} Run with \texttt{streamlit run frontend.py} \\
-\texttt{data.py} & Creates practice data and trains a test Random Forest \\
-\texttt{app.py}, \texttt{apptest.py} & Test scripts for predictions \\
-\texttt{appp.py}, \texttt{streamlit.py} & Earlier versions of the app \\
-\texttt{*.pkl}, \texttt{*.joblib} & Saved models, scaler, encoder, feature names \\
-\texttt{datayesno.xlsx}, \texttt{datatest*.xlsx} & Student datasets \\
-\texttt{Career\_Input\_Guidelines.pdf} & Guide for filling the sliders honestly \\
-Research paper (\texttt{.docx}) & Written report of the project \\
-\bottomrule
-\end{tabularx}
+| Component | Max Points | How it is counted |
+|---|:---:|---|
+| 🎓 CGPA | 3 | `CGPA / 10 × 3` |
+| 💼 Internships | 4 | Paid = 2 points, Unpaid = 1 point (each) |
+| 📚 Courses | 2 | IIT `0.5`, NIT `0.4`, Industry `0.3`, Other `0.2` (per course) |
+| 🏅 Co-curricular certificates | 1 | `0.5` per certificate |
+| **Total** | **10** | **8.5+** Excellent · **7+** Good · **5+** Fair · **<5** Needs improvement |
 
-% ---------- 8 ----------
-\section{Limitations and Future Work}
-\begin{itemize}
-  \item Part of the training data is \textbf{synthetic}, so the model learns the patterns built into it. Real student data would be more trustworthy.
-  \item Tab 2 uses \textbf{self-rated} inputs, so honest answers matter.
-  \item The prediction is a \textbf{guide, not a final decision}.
-  \item Future work: larger real datasets, more features (soft skills, certificate quality), and a mobile-friendly version for placement cells.
-\end{itemize}
+---
 
-% ---------- 9 ----------
-\section{One-Line Summary}
-\begin{keybox}
-\emph{``We built a Streamlit web app that uses a Random Forest machine-learning model to predict whether a student will go for placement, higher studies or a startup, and calculates an API score out of 10, giving students and colleges data-driven career guidance instead of relying only on CGPA.''}
-\end{keybox}
+## 🤖 How the Model Works
 
-\end{document}
+The project uses a **Random Forest Classifier**, which is a team of 100 decision trees that vote on the final answer. One tree can be wrong, but many trees voting together are far more reliable.
+
+```
+Raw Data → Cleaning → Encoding & Scaling → Train / Test Split (80/20) → Random Forest → Saved Model → Streamlit App
+```
+
+The project has **two trained models**:
+
+| Model | Used in | Inputs | Output |
+|---|---|---|---|
+| `student_placement_model.pkl` | Tab 1 (Excel upload) | CGPA, internship, research papers, entrepreneurship experience, startup skills, programming languages, coding | Placement / Higher Studies / Startup |
+| `career_model.joblib` + `career_scaler.joblib` | Tab 2 (sliders) | 12 profile features | Entrepreneurship / Higher Studies / Job Placement, with probabilities |
+
+---
+
+## 📊 Results (from the research paper)
+
+| Task | Metric | Result |
+|---|---|:---:|
+| API score prediction | R² Score | **0.89** |
+| | RMSE / MAE | 0.48 / 0.37 |
+| Career path prediction | Accuracy | **86.3%** |
+| | Precision / Recall / F1 | 84.7% / 85.1% / 84.9% |
+
+---
+
+## 🛠️ Tech Stack
+
+- **Language:** Python
+- **Machine Learning:** Scikit-learn (Random Forest, StandardScaler, LabelEncoder)
+- **Data:** Pandas, NumPy, OpenPyXL
+- **Visualization:** Matplotlib, Seaborn, Plotly
+- **Web App:** Streamlit
+- **Model Storage:** Joblib, Pickle
+
+---
+
+## 📂 Project Structure
+
+```
+Career-Path-Forecasting/
+│
+├── frontend.py                  # ⭐ Main Streamlit app (run this)
+├── data.py                      # Generates sample data and trains a test model
+├── app.py / apptest.py          # Scripts to test predictions
+├── appp.py / streamlit.py       # Earlier versions of the app
+│
+├── student_placement_model.pkl  # Model for Tab 1
+├── label_encoder.pkl            # Converts labels to numbers and back
+├── career_model.joblib          # Model for Tab 2
+├── career_scaler.joblib         # Scaler for Tab 2 inputs
+├── feature_names.joblib         # Feature names for Tab 2
+│
+├── datayesno.xlsx               # Main dataset (1000 students)
+├── datatest.xlsx                # Sample test file (16 students)
+├── datatest2.xlsx               # Sample test file (29 students)
+│
+├── Career_Input_Guidelines.pdf  # How to rate yourself on the sliders
+└── Career Path Forecasting Research Paper.docx
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/<your-username>/Career-Path-Forecasting.git
+cd Career-Path-Forecasting
+```
+
+### 2. (Optional) Create a virtual environment
+```bash
+python -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+```
+
+### 3. Install dependencies
+```bash
+pip install streamlit pandas numpy scikit-learn joblib matplotlib seaborn plotly openpyxl
+```
+
+### 4. Run the app
+```bash
+streamlit run frontend.py
+```
+
+The app opens in your browser at `http://localhost:8501`.
+
+> ⚠️ **Tip:** The models were trained with scikit-learn **1.6.1**. If you see a version warning, install it with `pip install scikit-learn==1.6.1`.
+
+---
+
+## 📁 Excel File Format (Tab 1)
+
+Your uploaded file must contain these columns. Spelling matters, so keep them exactly as written:
+
+| Column | Value |
+|---|---|
+| `cgpa` | Number (e.g. 8.5) |
+| `internship` | `yes` / `no` |
+| `research papers` | `yes` / `no` |
+| `enterpreunership experience` | `yes` / `no` |
+| `skills for stratup` | `yes` / `no` |
+| `programming languages` | Number |
+| `coding` | Number |
+
+Try it with the included `datatest.xlsx` or `datatest2.xlsx` files, or use `datayesno.xlsx` as a reference.
+
+---
+
+## ⚠️ Limitations
+
+- Part of the training data is **synthetic (computer-generated)**, so results depend on the patterns built into it. Real student data would improve reliability.
+- Tab 2 uses **self-rated** inputs, so honest answers matter (see the guidelines PDF).
+- Predictions are a **guide, not a final decision**.
+
+## 🔮 Future Scope
+
+- Train on larger, real-world student datasets
+- Add more features such as soft skills and certificate quality
+- Add a student login and history
+- Mobile-friendly design for placement cells and institutions
+
+---
+
+## 👨‍💻 Team
+
+| Name | Department |
+|---|---|
+| **Abhishek G Dangi** | CSE (Data Science), DSCE Bengaluru |
+| **Sambhram S Naregal** | CSE (Data Science), DSCE Bengaluru |
+| **Amarnath V** | CSE (Data Science), DSCE Bengaluru |
+| **K Yuvraj Sundaram** | CSE (Data Science), DSCE Bengaluru |
+
+🙏 *Guided by **Dr. Aarathi S** and HOD **Dr. Rashmi S**, Dayananda Sagar College of Engineering.*
+
+---
+
+<div align="center">
+
+⭐ **If you like this project, give it a star!** ⭐
+
+</div>
